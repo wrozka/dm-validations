@@ -96,8 +96,7 @@ module DataMapper
 
       def each
         errors.each_value do |v|
-          next if DataMapper::Ext.blank?(v)
-          yield(v)
+          yield(v) unless DataMapper::Ext.blank?(v)
         end
       end
 
